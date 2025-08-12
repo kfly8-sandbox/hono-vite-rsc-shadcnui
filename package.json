@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@hono/react-renderer": "^1.0.1",
+    "@tailwindcss/vite": "^4.1.11",
     "hono": "^4.9.1",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.2.3",
