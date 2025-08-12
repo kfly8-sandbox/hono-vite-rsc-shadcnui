@@ -1,7 +1,7 @@
-import { jsxRenderer } from 'hono/jsx-renderer'
-import { Link, ViteClient } from 'vite-ssr-components/hono'
+import { reactRenderer } from '@hono/react-renderer'
+import { Link, ViteClient } from 'vite-ssr-components/react'
 
-export const renderer = jsxRenderer(({ children }) => {
+export const renderer = reactRenderer(({ children }) => {
   return (
     <html>
       <head>
