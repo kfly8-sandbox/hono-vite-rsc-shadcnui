@@ -1,17 +1,52 @@
-import { cloudflare } from '@cloudflare/vite-plugin'
+import rsc from '@vitejs/plugin-rsc'
+import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
-import ssrPlugin from 'vite-ssr-components/plugin'
 import tailwindcss from '@tailwindcss/vite'
 import path from "path"
 
 export default defineConfig({
-  ssr: {
-    external: ['react', 'react-dom']
-  },
-  plugins: [cloudflare(), ssrPlugin(), tailwindcss()],
+  plugins: [
+    rsc(),
+    react(),
+    tailwindcss(),
+  ],
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+
+
+  environments: {
+    rsc: {
+      build: {
+        rollupOptions: {
+          input: {
+            index: './src/vite-rsc/entry.rsc.tsx',
+          },
+        },
+      },
+    },
+
+    ssr: {
+      build: {
+        rollupOptions: {
+          input: {
+            index: './src/vite-rsc/entry.ssr.tsx',
+          },
+        },
+      },
+    },
+
+    client: {
+      build: {
+        rollupOptions: {
+          input: {
+            index: './src/vite-rsc/entry.browser.tsx',
+          },
+        },
+      },
     },
   },
 })

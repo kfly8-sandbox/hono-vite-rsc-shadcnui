@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "sample-hono-vite-rsc",
+  "name": "hono-vite-rsc-shadcnui",
   "compatibility_date": "2025-08-03",
   "main": "./src/index.tsx"
 }

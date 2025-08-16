@@ -1,5 +1,5 @@
 {
-  "name": "sample-hono-vite-rsc",
+  "name": "hono-vite-rsc-shadcnui",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,6 @@
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
-    "@hono/react-renderer": "^1.0.1",
     "@radix-ui/react-checkbox": "^1.3.2",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.11",
@@ -26,8 +25,11 @@
     "@cloudflare/vite-plugin": "^1.2.3",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "latest",
+    "@vitejs/plugin-rsc": "latest",
+    "rsc-html-stream": "^0.0.7",
     "tw-animate-css": "^1.3.6",
-    "vite": "^6.3.5",
+    "vite": "^7.1.1",
     "vite-ssr-components": "^0.3.0",
     "wrangler": "^4.17.0"
   }
