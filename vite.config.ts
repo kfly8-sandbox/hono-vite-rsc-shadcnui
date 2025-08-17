@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => ({
         rollupOptions: {
           input: {
             index: './src/entries/entry.rsc.tsx',
-            workers: './src/entries/entry.cluodflare-workers.tsx',
+            workers: './src/entries/entry.cloudflare-workers.tsx',
           },
         },
       },
