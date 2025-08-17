@@ -6,6 +6,7 @@ import { HomePage } from './pages/Home'
 import { AboutPage } from './pages/About'
 import { DashboardPage } from './pages/Dashboard'
 import { ProfilePage } from './pages/Profile'
+import { TodoListPage } from './pages/TodoList'
 import { NotFoundPage } from './pages/NotFound'
 
 export const app = new Hono()
@@ -33,6 +34,12 @@ app.get('/dashboard', (c) => {
 app.get('/profile', (c) => {
   return c.render(<ProfilePage />, {
     title: 'Profile - Hono RSC App',
+  })
+})
+
+app.get('/todos', (c) => {
+  return c.render(<TodoListPage />, {
+    title: 'Todo List - Hono RSC App',
   })
 })
 
