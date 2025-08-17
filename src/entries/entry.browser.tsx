@@ -61,6 +61,7 @@ async function main() {
       <BrowserRoot />
     </React.StrictMode>
   )
+
   ReactDOMClient.hydrateRoot(document, browserRoot, {
     formState: initialPayload.formState,
   })

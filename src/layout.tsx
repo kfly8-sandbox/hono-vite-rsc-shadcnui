@@ -13,7 +13,7 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
     <html>
       <head>
         <title>{title ?? "hono-vite-rsc-shadcnui" }</title>
-        <ViteClient />
+        { !import.meta.env.PROD && <ViteClient /> }
         <Link href="/src/style.css" rel="stylesheet" />
       </head>
       <body>{children}</body>

@@ -23,7 +23,8 @@ export default defineConfig({
       build: {
         rollupOptions: {
           input: {
-            index: './src/vite-rsc/entry.rsc.tsx',
+            index: './src/entries/entry.rsc.tsx',
+            workers: './src/entries/entry.cluodflare-workers.tsx',
           },
         },
       },
@@ -33,7 +34,7 @@ export default defineConfig({
       build: {
         rollupOptions: {
           input: {
-            index: './src/vite-rsc/entry.ssr.tsx',
+            index: './src/entries/entry.ssr.tsx',
           },
         },
       },
@@ -43,10 +44,10 @@ export default defineConfig({
       build: {
         rollupOptions: {
           input: {
-            index: './src/vite-rsc/entry.browser.tsx',
+            index: './src/entries/entry.browser.tsx',
           },
         },
       },
-    },
+    }
   },
 })

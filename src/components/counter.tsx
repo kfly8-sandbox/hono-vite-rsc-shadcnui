@@ -11,6 +11,8 @@ export function Counter() {
     <>
       <div className="flex items-center space-x-4">
         <Button onClick={() => setCount(count + 1)}>increment</Button>
+        <Button onClick={() => setCount(count - 1)}>decrement</Button>
+        <Button onClick={() => setCount(0)}>reset</Button>
         <span className="text-xl">{count}</span>
       </div>
     </>
