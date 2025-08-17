@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import path from "path"
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     rsc(),
     react(),
@@ -17,6 +17,17 @@ export default defineConfig({
     },
   },
 
+  // The @vitejs/plugin-rsc bundles React's react-server-dom implementation,
+  // which relies on process.env.NODE_ENV to determine whether to use
+  // development or production builds. While Vite uses 'mode' internally,
+  // we need to define process.env.NODE_ENV to ensure React RSC components
+  // use the correct build variant. Without this, the server and client
+  // may use mismatched React versions, causing runtime errors.
+  // Note: This workaround may become unnecessary in future versions as
+  // Vite's RSC support matures or React adopts Vite's native environment variables.
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(mode),
+  },
 
   environments: {
     rsc: {
@@ -50,4 +61,4 @@ export default defineConfig({
       },
     }
   },
-})
+}))
