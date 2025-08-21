@@ -7,7 +7,6 @@ A modern web application built with Hono, Vite, React Server Components, and sha
 - ⚡ **React Server Components** - Server-side rendering with streaming support
 - 🎨 **shadcn/ui** - Beautiful, accessible UI components built with Radix UI and Tailwind CSS
 - 🚀 **Hono** - Lightweight, ultrafast web framework with file-based routing
-- 🏗️ **hono-builder** - Automatic route registration and builder pattern
 - ⚙️ **Vite** - Lightning fast build tool with HMR and multi-environment support
 - ☁️ **Cloudflare Workers** - Deploy globally on the edge
 - 🎯 **TypeScript** - Full type safety
@@ -116,7 +115,6 @@ vite-utils.ts        # Vite hot reload utilities
 ## Technologies
 
 - **[Hono](https://hono.dev/)** - Web framework
-- **[hono-builder](https://github.com/kfly8/hono-builder)** - File-based routing for Hono
 - **[Vite](https://vitejs.dev/)** - Build tool with multi-environment support
 - **[React Server Components](https://react.dev/reference/rsc/server-components)** - Server-side React
 - **[shadcn/ui](https://ui.shadcn.com/)** - UI component library
@@ -171,7 +169,6 @@ The `wrangler.jsonc` file configures Cloudflare Workers deployment settings.
 
 - The project uses React 19 with experimental RSC features
 - NODE_ENV configuration is required for proper React builds (see vite.config.ts comments)
-- File-based routing with automatic route registration via hono-builder
 - Routes in `src/routes/` are automatically imported and registered
 - Hot Module Replacement configured for `builder.ts` and route files
 - Some warnings about side effects may appear during Cloudflare Workers preview - these can be safely ignored

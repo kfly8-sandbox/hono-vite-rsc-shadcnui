@@ -1,6 +1,6 @@
 import builder from '@/builder'
 
-builder.setNotFoundHandler((c) => {
+builder.notFound((c) => {
   return c.render(
     (
       <div className="container mx-auto p-8 text-center">
