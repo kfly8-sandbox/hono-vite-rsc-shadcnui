@@ -1,7 +1,9 @@
-import builder from '@/builder'
+import { Hono } from 'hono'
 import { TodoList } from '@/components/TodoList'
 
-builder.get('/todos', (c) => {
+const app = new Hono()
+
+app.get('/todos', (c) => {
   return c.render(
     (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
@@ -30,3 +32,5 @@ builder.get('/todos', (c) => {
     }
   )
 })
+
+export default app

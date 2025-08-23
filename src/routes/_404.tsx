@@ -1,6 +1,8 @@
-import builder from '@/builder'
+import { Hono } from 'hono';
 
-builder.notFound((c) => {
+const app = new Hono()
+
+app.notFound((c) => {
   return c.render(
     (
       <div className="container mx-auto p-8 text-center">
@@ -16,3 +18,5 @@ builder.notFound((c) => {
     }
   )
 })
+
+export default app

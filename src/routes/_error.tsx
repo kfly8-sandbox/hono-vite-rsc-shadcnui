@@ -1,6 +1,8 @@
-import builder from '@/builder'
+import { Hono } from 'hono'
 
-builder.onError((err, c) => {
+const app = new Hono()
+
+app.onError((err, c) => {
   console.error(err)
   return c.render(
     (
@@ -17,3 +19,5 @@ builder.onError((err, c) => {
     }
   )
 })
+
+export default app

@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import path from "path"
-import { createHotUpdateHandler } from './vite-utils'
 
 export default defineConfig(({ mode }) => ({
   plugins: [
@@ -12,7 +11,6 @@ export default defineConfig(({ mode }) => ({
     tailwindcss(),
     {
       name: 'reload-builder',
-      handleHotUpdate: createHotUpdateHandler(['src/builder.ts'])
     }
   ],
 

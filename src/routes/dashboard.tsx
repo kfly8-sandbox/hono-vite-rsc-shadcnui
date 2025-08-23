@@ -1,6 +1,8 @@
-import builder from '@/builder'
+import { Hono } from 'hono'
 
-builder.get('/dashboard', (c) => {
+const app = new Hono()
+
+app.get('/dashboard', (c) => {
   return c.render(
     (
       <div className="container mx-auto p-8">
@@ -31,3 +33,5 @@ builder.get('/dashboard', (c) => {
     }
   )
 })
+
+export default app

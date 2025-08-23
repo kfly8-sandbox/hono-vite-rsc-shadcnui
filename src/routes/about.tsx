@@ -1,6 +1,8 @@
-import builder from '@/builder'
+import { Hono } from 'hono'
 
-builder.get('/about', (c) => {
+const app = new Hono()
+
+app.get('/about', (c) => {
   return c.render(
     (
       <div className="container mx-auto p-8">
@@ -30,3 +32,4 @@ builder.get('/about', (c) => {
   )
 })
 
+export default app

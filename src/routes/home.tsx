@@ -1,7 +1,9 @@
-import builder from '@/builder'
+import { Hono } from 'hono'
 import { Counter } from '@/components/counter'
 
-builder.get('/', (c) => {
+const app = new Hono()
+
+app.get('/', (c) => {
   return c.render(
     (
       <div className="container mx-auto p-8">
@@ -30,3 +32,5 @@ builder.get('/', (c) => {
     }
   )
 })
+
+export default app

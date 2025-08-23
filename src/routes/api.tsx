@@ -1,7 +1,9 @@
-import builder from '@/builder'
+import { Hono } from 'hono'
+
+const app = new Hono()
 
 // API status endpoint
-builder.get('/api/status', (c) => {
+app.get('/api/status', (c) => {
   return c.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
@@ -10,7 +12,7 @@ builder.get('/api/status', (c) => {
 })
 
 // API users endpoint
-builder.get('/api/users', (c) => {
+app.get('/api/users', (c) => {
   // Mock data - in a real app, this would come from a database
   return c.json([
     { id: 1, name: 'John Doe', email: 'john@example.com' },
@@ -20,7 +22,7 @@ builder.get('/api/users', (c) => {
 })
 
 // API contact endpoint
-builder.post('/api/contact', async (c) => {
+app.post('/api/contact', async (c) => {
   const body = await c.req.json()
   // In a real app, you would process the contact form here
   return c.json({
@@ -29,3 +31,5 @@ builder.post('/api/contact', async (c) => {
     data: body,
   })
 })
+
+export default app

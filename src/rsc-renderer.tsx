@@ -90,7 +90,7 @@ export const rscRenderer = ({ Layout }: RscRendererOptions) => {
 
     // Delegate to SSR for HTML rendering
     const ssrEntryModule = await import.meta.viteRsc.loadModule<
-      typeof import('./vite/entry.ssr.js')
+      typeof import('./entries/entry.ssr.js')
     >('ssr', 'index')
     const htmlStream = await ssrEntryModule.renderHTML(rscStream, {
       formState,
