@@ -1,33 +1,30 @@
 import { Hono } from 'hono'
+import { About } from '@/components/About'
+import { Button } from '@/components/ui/button'
+import { ArrowLeft, Info } from 'lucide-react'
 
 const app = new Hono()
 
 app.get('/about', (c) => {
   return c.render(
     (
-      <div className="container mx-auto p-8">
-        <div className="mb-6">
-          <a href="/" className="text-blue-600 hover:underline text-sm">
-            ← Home
-          </a>
-        </div>
-        <h1 className="text-3xl font-bold mb-6">About</h1>
-        <div className="prose max-w-none">
-          <p className="text-lg mb-4">
-            This is a modern web application built with cutting-edge technologies:
-          </p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>React Server Components for optimal performance</li>
-            <li>Hono as a lightweight web framework</li>
-            <li>Vite for fast development and building</li>
-            <li>Tailwind CSS for styling</li>
-            <li>Deployable to Cloudflare Workers</li>
-          </ul>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+        <div className="container mx-auto px-4 py-8 max-w-6xl">
+          <div className="mb-6">
+            <Button variant="ghost" size="sm" asChild>
+              <a href="/" className="flex items-center gap-2">
+                <ArrowLeft className="h-4 w-4" />
+                Back to Home
+              </a>
+            </Button>
+          </div>
+
+          <About />
         </div>
       </div>
     ),
     {
-      title: 'About - Hono RSC App',
+      title: 'About - Modern Web Development Showcase',
     }
   )
 })
