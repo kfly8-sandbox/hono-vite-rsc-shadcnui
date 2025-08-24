@@ -11,7 +11,7 @@ app.get('/todos', (c) => {
   return c.render(
     (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 max-w-4xl">
           <div className="mb-6">
             <Button variant="ghost" size="sm" asChild>
               <a href="/" className="flex items-center gap-2">

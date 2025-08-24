@@ -83,16 +83,16 @@ export function Home() {
         </div>
         
         <div className="space-y-4">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
             Welcome to Hono + Vite + RSC
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             A modern full-stack application built with React Server Components, 
             Hono framework, and beautiful shadcn/ui components.
           </p>
         </div>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button size="lg" className="gap-2" asChild>
             <a href="https://github.com/kfly8-sandbox/hono-vite-rsc-shadcnui" target="_blank" rel="noopener noreferrer">
               <Github className="h-4 w-4" />
@@ -109,7 +109,7 @@ export function Home() {
       </div>
 
       {/* Interactive Counter */}
-      <Card className="max-w-md mx-auto">
+      <Card className="max-w-sm sm:max-w-md mx-auto">
         <CardContent className="flex justify-center pt-6">
           <Counter />
         </CardContent>
@@ -117,8 +117,8 @@ export function Home() {
 
       {/* Features Grid */}
       <div className="space-y-6">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Built with Modern Technologies</h2>
+        <div className="text-center px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Built with Modern Technologies</h2>
           <p className="text-muted-foreground">
             Combining the best tools for performance, developer experience, and user interface
           </p>
@@ -141,8 +141,8 @@ export function Home() {
 
       {/* Navigation Cards */}
       <div className="space-y-6">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Explore the Application</h2>
+        <div className="text-center px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Explore the Application</h2>
           <p className="text-muted-foreground">
             Discover different features and capabilities of this modern web application
           </p>

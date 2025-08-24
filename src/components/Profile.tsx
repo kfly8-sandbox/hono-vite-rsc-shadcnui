@@ -28,20 +28,20 @@ export function Profile() {
         {/* Profile Info Card */}
         <Card className="md:col-span-2">
           <CardHeader>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold">
                   JD
                 </div>
                 <div>
-                  <CardTitle className="text-2xl">John Doe</CardTitle>
+                  <CardTitle className="text-xl sm:text-2xl">John Doe</CardTitle>
                   <CardDescription className="flex items-center gap-2 mt-1">
                     <Mail className="h-4 w-4" />
-                    john.doe@example.com
+                    <span className="text-sm">john.doe@example.com</span>
                   </CardDescription>
                 </div>
               </div>
-              <Button variant="outline" size="sm" className="flex items-center gap-2">
+              <Button variant="outline" size="sm" className="flex items-center gap-2 w-full sm:w-auto">
                 <Edit3 className="h-4 w-4" />
                 Edit Profile
               </Button>
