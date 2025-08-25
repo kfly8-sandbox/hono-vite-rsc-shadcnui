@@ -13,7 +13,7 @@ app.get('/', (c) => {
       </div>
     ),
     {
-      title: 'Home - Modern Web Development with Hono + RSC',
+      title: 'Home - Modern Web Development with Hono + Vite + React Server Components',
     }
   )
 })
