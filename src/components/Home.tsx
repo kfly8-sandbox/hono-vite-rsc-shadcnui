@@ -2,20 +2,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Counter } from '@/components/counter'
-import { 
+import {
   Rocket,
-  Zap, 
+  Zap,
   Shield,
-  Code,
   Server,
   Palette,
   ArrowRight,
   LayoutDashboard,
   CheckSquare,
   User,
-  Info,
   Github,
-  Star
 } from 'lucide-react'
 
 const features = [
@@ -26,8 +23,13 @@ const features = [
   },
   {
     icon: <Server className="h-6 w-6" />,
-    title: "Hono Framework", 
+    title: "Hono Framework",
     description: "Ultra-fast, lightweight web framework built for the edge"
+  },
+  {
+    icon: <Zap className="h-6 w-6 text-purple-500" />,
+    title: "Vite Build Tool",
+    description: "Lightning-fast build tool with hot module replacement and optimized bundling"
   },
   {
     icon: <Palette className="h-6 w-6" />,
@@ -52,7 +54,7 @@ const navItems = [
   {
     href: "/todos",
     icon: <CheckSquare className="h-5 w-5" />,
-    title: "Todo List", 
+    title: "Todo List",
     description: "Manage your tasks efficiently",
     badge: "Productivity"
   },
@@ -63,13 +65,6 @@ const navItems = [
     description: "Manage your account settings",
     badge: "Account"
   },
-  {
-    href: "/about",
-    icon: <Info className="h-5 w-5" />,
-    title: "About",
-    description: "Learn more about this application",
-    badge: "Info"
-  }
 ]
 
 export function Home() {
@@ -81,13 +76,13 @@ export function Home() {
           <Rocket className="h-4 w-4" />
           Modern Web Development
         </div>
-        
+
         <div className="space-y-4">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
             Welcome to Hono + Vite + RSC
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            A modern full-stack application built with React Server Components, 
+            A modern full-stack application built with React Server Components,
             Hono framework, and beautiful shadcn/ui components.
           </p>
         </div>
@@ -97,12 +92,6 @@ export function Home() {
             <a href="https://github.com/kfly8-sandbox/hono-vite-rsc-shadcnui" target="_blank" rel="noopener noreferrer">
               <Github className="h-4 w-4" />
               View Source
-            </a>
-          </Button>
-          <Button variant="outline" size="lg" className="gap-2" asChild>
-            <a href="https://github.com/kfly8-sandbox/hono-vite-rsc-shadcnui" target="_blank" rel="noopener noreferrer">
-              <Star className="h-4 w-4" />
-              Star on GitHub
             </a>
           </Button>
         </div>
@@ -123,12 +112,12 @@ export function Home() {
             Combining the best tools for performance, developer experience, and user interface
           </p>
         </div>
-        
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
             <Card key={index} className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
-                <div className="flex justify-center mb-4 text-primary">
+                <div className={`flex justify-center mb-4 ${feature.color || 'text-primary'}`}>
                   {feature.icon}
                 </div>
                 <h3 className="font-semibold mb-2">{feature.title}</h3>
@@ -147,7 +136,7 @@ export function Home() {
             Discover different features and capabilities of this modern web application
           </p>
         </div>
-        
+
         <div className="grid gap-6 md:grid-cols-2">
           {navItems.map((item, index) => (
             <Card key={index} className="hover:shadow-lg transition-all duration-200 cursor-pointer group">
@@ -175,29 +164,6 @@ export function Home() {
           ))}
         </div>
       </div>
-
-      {/* Tech Stack */}
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle>Technology Stack</CardTitle>
-          <CardDescription>
-            This application showcases modern web development practices
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-2 justify-center">
-            <Badge variant="outline">React 19</Badge>
-            <Badge variant="outline">Hono</Badge>
-            <Badge variant="outline">Vite</Badge>
-            <Badge variant="outline">TypeScript</Badge>
-            <Badge variant="outline">Tailwind CSS</Badge>
-            <Badge variant="outline">shadcn/ui</Badge>
-            <Badge variant="outline">Radix UI</Badge>
-            <Badge variant="outline">Lucide Icons</Badge>
-            <Badge variant="outline">Cloudflare Workers</Badge>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }
