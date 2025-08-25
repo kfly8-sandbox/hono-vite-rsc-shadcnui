@@ -1,28 +1,45 @@
 import { Hono } from 'hono'
 import { Counter } from '@/components/counter'
+import { ServerActionCounter } from '@/components/ServerActionCounter'
 import { AppFooter } from '@/components/AppFooter'
-import { ArrowRight } from 'lucide-react'
 
 const app = new Hono()
 
-app.get('/counter', (c) => {
+app.on(['POST', 'GET'], '/counter', (c) => {
   return c.render(
     (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 pb-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 max-w-4xl">
-          
-          <div className="mb-8 space-y-4 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 max-w-6xl">
+
+          <div className="mb-12 space-y-4 text-center">
             <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
-              Interactive Counter
+              Counter Comparison
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Click to increment and reach exciting milestones!
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Compare client-side interactive counter with server-side action counter
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <div className="w-full max-w-2xl border rounded-lg p-8 text-center">
-              <Counter />
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Interactive Counter */}
+            <div className="border rounded-lg p-8">
+              <div className="space-y-6 text-center">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Interactive Counter</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Client-side React state with milestones
+                  </p>
+                </div>
+                <Counter />
+                <div className="text-sm text-muted-foreground">
+                  Resets on page refresh
+                </div>
+              </div>
+            </div>
+
+            {/* Server Counter */}
+            <div className="border rounded-lg p-8">
+              <ServerActionCounter />
             </div>
           </div>
 
@@ -31,7 +48,7 @@ app.get('/counter', (c) => {
       </div>
     ),
     {
-      title: 'Interactive Counter - Click and Count',
+      title: 'Counter Comparison - Interactive vs Server Actions',
     }
   )
 })

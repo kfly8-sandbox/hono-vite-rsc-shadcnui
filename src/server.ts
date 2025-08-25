@@ -10,7 +10,7 @@ const app = new Hono()
 
 app.use(rscRenderer({ Layout }))
 app.use(logger())
-app.notFound(notFound)
+//app.notFound(notFound)
 app.onError(onError)
 
 const modules = import.meta.glob([

@@ -1,6 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import {
   ArrowRight,
   LayoutDashboard,
@@ -41,28 +40,24 @@ const navItems = [
     icon: <ArrowRight className="h-5 w-5" />,
     title: "Counter",
     description: "Click to increment with milestone celebrations",
-    badge: "Interactive"
   },
   {
     href: "/dashboard",
     icon: <LayoutDashboard className="h-5 w-5" />,
     title: "Dashboard",
     description: "View analytics and system metrics",
-    badge: "Analytics"
   },
   {
     href: "/todos",
     icon: <CheckSquare className="h-5 w-5" />,
     title: "Todo List",
     description: "Manage your tasks efficiently",
-    badge: "Productivity"
   },
   {
     href: "/profile",
     icon: <User className="h-5 w-5" />,
     title: "Profile",
     description: "Manage your account settings",
-    badge: "Account"
   },
 ]
 
@@ -160,7 +155,6 @@ export function Home() {
                       </div>
                       <CardTitle className="text-lg">{item.title}</CardTitle>
                     </div>
-                    <Badge variant="secondary">{item.badge}</Badge>
                   </div>
                   <CardDescription>{item.description}</CardDescription>
                 </CardHeader>
