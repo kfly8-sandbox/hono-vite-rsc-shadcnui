@@ -1,9 +1,9 @@
-import { Hono } from 'hono'
+import type { ErrorHandler } from 'hono'
 
-const app = new Hono()
-
-app.onError((err, c) => {
+const onError: ErrorHandler = (err, c) => {
   console.error(err)
+
+  c.status(500)
   return c.render(
     (
       <div className="container mx-auto p-8 text-center">
@@ -18,6 +18,6 @@ app.onError((err, c) => {
       title: 'Error - Hono RSC App',
     }
   )
-})
+}
 
-export default app
+export default onError

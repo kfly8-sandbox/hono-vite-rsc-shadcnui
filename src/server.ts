@@ -3,14 +3,17 @@ import { Layout } from './layout'
 import { rscRenderer } from './rsc-renderer'
 import { logger } from 'hono/logger'
 
+import notFound from './routes/_404'
+import onError from './routes/_error'
+
 const app = new Hono()
 
 app.use(rscRenderer({ Layout }))
 app.use(logger())
+app.notFound(notFound)
+app.onError(onError)
 
 const modules = import.meta.glob([
-  './routes/**/_404.(ts|tsx)',
-  './routes/**/_error(.ts|tsx)',
   './routes/**/!(_*|$*|*.test|*.spec).(ts|tsx)'
 ], { eager: true })
 

@@ -13,7 +13,7 @@
       "DOM.Iterable",
       "ESNext"
     ],
-    "types": ["vite/client", "react", "react-dom"],
+    "types": ["vite/client", "react", "react-dom", "vitest/globals"],
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",

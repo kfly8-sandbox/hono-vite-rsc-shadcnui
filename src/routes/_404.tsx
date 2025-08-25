@@ -1,8 +1,7 @@
-import { Hono } from 'hono';
+import type { NotFoundHandler } from 'hono'
 
-const app = new Hono()
-
-app.notFound((c) => {
+const notFound: NotFoundHandler = (c) => {
+  c.status(404)
   return c.render(
     (
       <div className="container mx-auto p-8 text-center">
@@ -15,8 +14,8 @@ app.notFound((c) => {
     ),
     {
       title: '404 - Page Not Found',
-    }
+    },
   )
-})
+}
 
-export default app
+export default notFound
