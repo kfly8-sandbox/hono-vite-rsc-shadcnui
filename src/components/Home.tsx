@@ -1,13 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Counter } from '@/components/counter'
 import {
-  Rocket,
-  Zap,
-  Shield,
-  Server,
-  Palette,
   ArrowRight,
   LayoutDashboard,
   CheckSquare,
@@ -15,35 +9,40 @@ import {
   Github,
 } from 'lucide-react'
 
-const features = [
+const coreStack = [
   {
-    icon: <Zap className="h-6 w-6" />,
-    title: "React Server Components",
-    description: "Modern server-side rendering with React 19 and streaming support"
+    name: "Hono",
+    url: "https://hono.dev",
+    logo: "/logos/hono.png"
   },
   {
-    icon: <Server className="h-6 w-6" />,
-    title: "Hono Framework",
-    description: "Ultra-fast, lightweight web framework built for the edge"
+    name: "Vite",
+    url: "https://vitejs.dev",
+    logo: "/logos/vite.svg"
   },
   {
-    icon: <Zap className="h-6 w-6 text-purple-500" />,
-    title: "Vite Build Tool",
-    description: "Lightning-fast build tool with hot module replacement and optimized bundling"
+    name: "React",
+    url: "https://react.dev",
+    logo: "/logos/react.svg"
   },
+]
+
+const uiStack = [
   {
-    icon: <Palette className="h-6 w-6" />,
-    title: "shadcn/ui Components",
-    description: "Beautiful, accessible components built with Radix UI and Tailwind CSS"
+    name: "shadcn/ui",
+    url: "https://ui.shadcn.com",
+    logo: "/logos/shadcn.png"
   },
-  {
-    icon: <Shield className="h-6 w-6" />,
-    title: "TypeScript Ready",
-    description: "Full TypeScript support with strict type checking"
-  }
 ]
 
 const navItems = [
+  {
+    href: "/counter",
+    icon: <ArrowRight className="h-5 w-5" />,
+    title: "Interactive Counter",
+    description: "Click to increment with milestone celebrations",
+    badge: "Interactive"
+  },
   {
     href: "/dashboard",
     icon: <LayoutDashboard className="h-5 w-5" />,
@@ -71,69 +70,81 @@ export function Home() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <div className="text-center space-y-6">
-        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
-          <Rocket className="h-4 w-4" />
-          Modern Web Development
-        </div>
-
-        <div className="space-y-4">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
-            Welcome to Hono + Vite + RSC
-          </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            A modern full-stack application built with React Server Components,
-            Hono framework, and beautiful shadcn/ui components.
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="gap-2" asChild>
-            <a href="https://github.com/kfly8-sandbox/hono-vite-rsc-shadcnui" target="_blank" rel="noopener noreferrer">
-              <Github className="h-4 w-4" />
-              View Source
-            </a>
-          </Button>
-        </div>
-      </div>
-
-      {/* Interactive Counter */}
-      <Card className="max-w-sm sm:max-w-md mx-auto">
-        <CardContent className="flex justify-center pt-6">
-          <Counter />
-        </CardContent>
-      </Card>
-
-      {/* Features Grid */}
-      <div className="space-y-6">
-        <div className="text-center px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Built with Modern Technologies</h2>
-          <p className="text-muted-foreground">
-            Combining the best tools for performance, developer experience, and user interface
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className={`flex justify-center mb-4 ${feature.color || 'text-primary'}`}>
-                  {feature.icon}
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center space-y-16">
+          {/* Core Tech Stack Logos */}
+          <div className="space-y-12">
+            <div className="flex items-center justify-center gap-4 sm:gap-8">
+              {coreStack.map((tech, index) => (
+                <div key={tech.name} className="flex items-center">
+                  <a
+                    href={tech.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group p-2 sm:p-4 rounded-2xl hover:bg-accent/30 transition-all duration-300 hover:scale-105"
+                    aria-label={tech.name}
+                  >
+                    <img
+                      src={tech.logo}
+                      alt={`${tech.name} logo`}
+                      className="h-18 w-18 sm:h-24 sm:w-24 object-contain"
+                    />
+                  </a>
                 </div>
-                <h3 className="font-semibold mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+
+            <div className="space-y-6">
+              <p className="text-xl sm:text-2xl md:text-3xl font-light text-foreground max-w-4xl mx-auto leading-relaxed px-4">
+                Modern tech stack trial with{' '}
+                <a
+                  href="https://react.dev/reference/rsc/server-components"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium underline decoration-2 underline-offset-4 hover:text-primary transition-colors whitespace-nowrap"
+                >
+                  React Server Components
+                </a>
+              </p>
+
+              <div className="flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-lg text-muted-foreground">
+                <span>Enhanced with</span>
+                <a
+                  href={uiStack[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-full bg-accent/50 hover:bg-accent transition-colors"
+                  aria-label={uiStack[0].name}
+                >
+                  <img
+                    src={uiStack[0].logo}
+                    alt={`${uiStack[0].name} logo`}
+                    className="h-4 w-4 sm:h-5 sm:w-5 object-contain"
+                  />
+                  <span className="font-medium text-xs sm:text-base">shadcn/ui</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Action Button */}
+          <div>
+            <Button size="lg" variant="outline" className="gap-3 h-12 px-8 text-base font-medium" asChild>
+              <a href="https://github.com/kfly8-sandbox/hono-vite-rsc-shadcnui" target="_blank" rel="noopener noreferrer">
+                <Github className="h-5 w-5" />
+                View Source
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Navigation Cards */}
       <div className="space-y-6">
         <div className="text-center px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Explore the Application</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Explore Examples</h2>
           <p className="text-muted-foreground">
-            Discover different features and capabilities of this modern web application
+            Check out different features and components in action
           </p>
         </div>
 
