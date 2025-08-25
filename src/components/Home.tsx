@@ -39,7 +39,7 @@ const navItems = [
   {
     href: "/counter",
     icon: <ArrowRight className="h-5 w-5" />,
-    title: "Interactive Counter",
+    title: "Counter",
     description: "Click to increment with milestone celebrations",
     badge: "Interactive"
   },

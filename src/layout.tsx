@@ -1,6 +1,7 @@
-import { Link, ViteClient } from 'vite-ssr-components/react'
+import { ViteClient } from 'vite-ssr-components/react'
 import React from 'react'
 import type { Props } from './rsc-renderer'
+import './style.css'
 
 declare module './rsc-renderer' {
   interface Props {
@@ -15,8 +16,7 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>{title ?? "hono-vite-rsc-shadcnui" }</title>
-        { !import.meta.env.PROD && <ViteClient /> }
-        { !import.meta.env.PROD && <Link href="/src/style.css" rel="stylesheet" /> }
+        <ViteClient />
       </head>
       <body>{children}</body>
     </html>
