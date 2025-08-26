@@ -138,9 +138,6 @@ export function Home() {
       <div className="space-y-6">
         <div className="text-center px-4">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">Explore Examples</h2>
-          <p className="text-muted-foreground">
-            Check out different features and components in action
-          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
