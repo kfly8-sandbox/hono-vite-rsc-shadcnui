@@ -27,7 +27,7 @@ app.on(['POST', 'GET'], '/counter', (c) => {
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Interactive Counter</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Client-side React state with milestones
+                    Client-side counter
                   </p>
                 </div>
                 <ClientCounter />
@@ -43,7 +43,7 @@ app.on(['POST', 'GET'], '/counter', (c) => {
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Interactive Counter</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Client-side React state with milestones
+                    Server Action counter
                   </p>
                 </div>
                 <ServerActionCounter />
