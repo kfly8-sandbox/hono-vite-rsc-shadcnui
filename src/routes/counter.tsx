@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { Counter } from '@/components/counter'
+import { ClientCounter } from '@/components/ClientCounter'
 import { ServerActionCounter } from '@/components/ServerActionCounter'
 import { AppFooter } from '@/components/AppFooter'
 
@@ -21,7 +21,7 @@ app.on(['POST', 'GET'], '/counter', (c) => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Interactive Counter */}
+            {/* Client Counter */}
             <div className="border rounded-lg p-8">
               <div className="space-y-6 text-center">
                 <div>
@@ -30,16 +30,27 @@ app.on(['POST', 'GET'], '/counter', (c) => {
                     Client-side React state with milestones
                   </p>
                 </div>
-                <Counter />
+                <ClientCounter />
                 <div className="text-sm text-muted-foreground">
                   Resets on page refresh
                 </div>
               </div>
             </div>
 
-            {/* Server Counter */}
+            {/* Server Action Counter */}
             <div className="border rounded-lg p-8">
-              <ServerActionCounter />
+              <div className="space-y-6 text-center">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">Interactive Counter</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Client-side React state with milestones
+                  </p>
+                </div>
+                <ServerActionCounter />
+                <div className="text-sm text-muted-foreground">
+                  This counter persists on the server
+                </div>
+              </div>
             </div>
           </div>
 

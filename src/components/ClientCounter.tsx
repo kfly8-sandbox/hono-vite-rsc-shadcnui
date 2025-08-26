@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Plus, Sparkles, Trophy, Target, Rocket, Zap } from 'lucide-react'
 
-export function Counter() {
+export function ClientCounter() {
   const [count, setCount] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [showMilestone, setShowMilestone] = useState(false)
@@ -26,7 +26,7 @@ export function Counter() {
     const newCount = count + 1
     setCount(newCount)
     triggerAnimation()
-    
+
     // Check for milestone with new count
     const milestone = getMilestoneMessage(newCount)
     if (milestone) {
@@ -77,14 +77,14 @@ export function Counter() {
         }`}>
           {count}
         </div>
-        
+
         {/* Animated effect */}
         {isAnimating && (
           <div className="absolute inset-0 text-4xl sm:text-6xl font-bold animate-pulse opacity-30 text-primary">
             {count}
           </div>
         )}
-        
+
 
         {/* Milestone Message - Positioned over counter with longer visibility */}
         {showMilestone && currentMilestone && (
@@ -100,12 +100,12 @@ export function Counter() {
       </div>
 
       {/* Increment Button - Closer to counter */}
-      <Button 
+      <Button
         onClick={increment}
         size="lg"
         className={`h-12 w-12 sm:h-16 sm:w-16 rounded-full transition-all duration-200 text-lg sm:text-xl font-bold touch-manipulation ${
-          showMilestone 
-            ? 'bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 animate-pulse' 
+          showMilestone
+            ? 'bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 animate-pulse'
             : 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700'
         } hover:scale-105 active:scale-95 shadow-lg`}
       >
