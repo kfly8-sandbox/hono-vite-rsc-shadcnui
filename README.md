@@ -25,7 +25,7 @@ bun install
 bun run dev
 ```
 
-Visit http://localhost:5173 to see the application.
+Visit http://localhost:5175 to see the application.
 
 ### Build
 
@@ -45,6 +45,12 @@ bun run preview
 
 ```
 src/
+├── assets/          # Static assets
+│   └── logos/       # Logo images
+│       ├── hono.svg
+│       ├── react.svg
+│       ├── shadcnui.svg
+│       └── vite.svg
 ├── components/
 │   ├── ui/          # shadcn/ui components
 │   │   ├── badge.tsx
@@ -56,28 +62,33 @@ src/
 │   │   ├── progress.tsx
 │   │   ├── separator.tsx
 │   │   └── tabs.tsx
-│   ├── AppFooter.tsx # Fixed footer navigation
-│   ├── counter.tsx  # Interactive counter component
-│   ├── Dashboard.tsx # Dashboard component
-│   ├── Home.tsx     # Home page component
-│   ├── Profile.tsx  # Profile page component
-│   └── TodoList.tsx # Todo list component
-├── entries/         # Entry points for different environments
-│   ├── entry.browser.tsx
-│   ├── entry.cloudflare-workers.tsx
-│   ├── entry.rsc.tsx
-│   └── entry.ssr.tsx
+│   ├── AppFooter.tsx         # Fixed footer navigation
+│   ├── ClientCounter.tsx     # Client-side interactive counter
+│   ├── Dashboard.tsx         # Dashboard component
+│   ├── Home.tsx             # Home page component
+│   ├── Profile.tsx          # Profile page component
+│   ├── ServerActionCounter.tsx # Server action counter
+│   └── TodoList.tsx         # Todo list component
+├── lib/
+│   └── utils.ts     # Utility functions
 ├── routes/          # Route components (file-based routing)
+│   ├── *.test.ts    # Test files (co-located with routes)
 │   ├── _404.tsx     # 404 Not Found page
 │   ├── _error.tsx   # Error page
 │   ├── api.tsx      # API endpoints
-│   ├── counter.tsx  # Counter page
+│   ├── counter.tsx  # Counter comparison page
 │   ├── dashboard.tsx # Dashboard page
 │   ├── home.tsx     # Home page
 │   ├── profile.tsx  # Profile page
 │   └── todos.tsx    # Todo List page
-├── lib/
-│   └── utils.ts     # Utility functions
+├── rsc/             # RSC entry points
+│   ├── entry.browser.tsx # Client entry point
+│   ├── entry.rsc.tsx    # RSC entry point
+│   ├── entry.ssr.tsx    # SSR entry point
+│   └── rsc-renderer.tsx # RSC renderer
+├── test/            # Test setup
+│   └── setup.ts
+├── cloudflare-workers.tsx # Cloudflare Workers entry
 ├── layout.tsx       # Main layout component
 ├── rsc-renderer.tsx # RSC renderer configuration
 ├── server.ts        # Server entry point with auto-routing
