@@ -1,4 +1,4 @@
-import rscHandler from './entry.rsc'
+import rscHandler from './rsc/entry.rsc'
 
 export default {
   fetch: rscHandler,

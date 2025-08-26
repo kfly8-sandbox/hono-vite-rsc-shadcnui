@@ -37,8 +37,8 @@ export default defineConfig(({ mode }) => ({
       build: {
         rollupOptions: {
           input: {
-            index: './src/entries/entry.rsc.tsx',
-            workers: './src/entries/entry.cloudflare-workers.tsx',
+            index: './src/rsc/entry.rsc.tsx',
+            workers: './src/cloudflare-workers.tsx',
           },
         },
       },
@@ -48,7 +48,7 @@ export default defineConfig(({ mode }) => ({
       build: {
         rollupOptions: {
           input: {
-            index: './src/entries/entry.ssr.tsx',
+            index: './src/rsc/entry.ssr.tsx',
           },
         },
       },
@@ -58,7 +58,7 @@ export default defineConfig(({ mode }) => ({
       build: {
         rollupOptions: {
           input: {
-            index: './src/entries/entry.browser.tsx',
+            index: './src/rsc/entry.browser.tsx',
           },
         },
       },

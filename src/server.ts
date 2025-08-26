@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { Layout } from './layout'
-import { rscRenderer } from './rsc-renderer'
+import { rscRenderer } from './rsc/rsc-renderer'
 import { logger } from 'hono/logger'
 
 import notFound from './routes/_404'
@@ -10,7 +10,7 @@ const app = new Hono()
 
 app.use(rscRenderer({ Layout }))
 app.use(logger())
-//app.notFound(notFound)
+app.notFound(notFound)
 app.onError(onError)
 
 const modules = import.meta.glob([
