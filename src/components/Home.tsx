@@ -9,29 +9,36 @@ import {
   MousePointerClick,
 } from 'lucide-react'
 
-const coreStack = [
+import honoLogo from '@/assets/logos/hono.svg'
+import viteLogo from '@/assets/logos/vite.svg'
+import reactLogo from '@/assets/logos/react.svg'
+import shadcnuiLogo from '@/assets/logos/shadcnui.svg'
+
+const coreTechStack = [
   {
     name: "Hono",
     url: "https://hono.dev",
-    logo: "/logos/hono.png"
+    logo: honoLogo
   },
   {
     name: "Vite",
     url: "https://vitejs.dev",
-    logo: "/logos/vite.svg"
+    logo: viteLogo
   },
   {
     name: "React",
     url: "https://react.dev",
-    logo: "/logos/react.svg"
-  },
-]
+    logo: reactLogo
+  }
+] as const
+
+type CoreTech = (typeof coreTechStack)[number]
 
 const uiStack = [
   {
     name: "shadcn/ui",
     url: "https://ui.shadcn.com",
-    logo: "/logos/shadcn.png"
+    logo: shadcnuiLogo
   },
 ]
 
@@ -62,6 +69,26 @@ const navItems = [
   },
 ]
 
+function CoreTechStackLogo({ tech }: { tech: CoreTech }) {
+  return (
+    <div className="flex items-center">
+      <a
+        href={tech.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group p-2 sm:p-4 rounded-2xl hover:bg-accent/30 transition-all duration-300 hover:scale-105"
+        aria-label={tech.name}
+      >
+        <img
+          src={tech.logo}
+          alt={`${tech.name} logo`}
+          className="h-18 w-18 sm:h-24 sm:w-24 object-contain"
+        />
+      </a>
+    </div>
+  )
+}
+
 export function Home() {
   return (
     <div className="space-y-12">
@@ -71,22 +98,8 @@ export function Home() {
           {/* Core Tech Stack Logos */}
           <div className="space-y-12">
             <div className="flex items-center justify-center gap-4 sm:gap-8">
-              {coreStack.map((tech, index) => (
-                <div key={tech.name} className="flex items-center">
-                  <a
-                    href={tech.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group p-2 sm:p-4 rounded-2xl hover:bg-accent/30 transition-all duration-300 hover:scale-105"
-                    aria-label={tech.name}
-                  >
-                    <img
-                      src={tech.logo}
-                      alt={`${tech.name} logo`}
-                      className="h-18 w-18 sm:h-24 sm:w-24 object-contain"
-                    />
-                  </a>
-                </div>
+              {coreTechStack.map((tech) => (
+                <CoreTechStackLogo key={tech.name} tech={tech} />
               ))}
             </div>
 
