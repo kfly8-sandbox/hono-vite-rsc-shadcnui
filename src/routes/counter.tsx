@@ -25,10 +25,7 @@ app.on(['POST', 'GET'], '/counter', (c) => {
             <div className="border rounded-lg p-8">
               <div className="space-y-6 text-center">
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Interactive Counter</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Client-side counter
-                  </p>
+                  <h3 className="text-lg font-semibold mb-2">Client-side counter</h3>
                 </div>
                 <ClientCounter />
                 <div className="text-sm text-muted-foreground">
@@ -41,10 +38,7 @@ app.on(['POST', 'GET'], '/counter', (c) => {
             <div className="border rounded-lg p-8">
               <div className="space-y-6 text-center">
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Interactive Counter</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Server Action counter
-                  </p>
+                  <h3 className="text-lg font-semibold mb-2">Server Action counter</h3>
                 </div>
                 <ServerActionCounter />
                 <div className="text-sm text-muted-foreground">

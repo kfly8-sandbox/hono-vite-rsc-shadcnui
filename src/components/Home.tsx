@@ -6,6 +6,7 @@ import {
   CheckSquare,
   User,
   Github,
+  MousePointerClick,
 } from 'lucide-react'
 
 const coreStack = [
@@ -37,7 +38,7 @@ const uiStack = [
 const navItems = [
   {
     href: "/counter",
-    icon: <ArrowRight className="h-5 w-5" />,
+    icon: <MousePointerClick className="h-5 w-5" />,
     title: "Counter",
     description: "Click to increment with milestone celebrations",
   },
