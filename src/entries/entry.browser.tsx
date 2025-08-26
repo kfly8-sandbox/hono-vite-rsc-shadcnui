@@ -1,15 +1,8 @@
 import * as ReactClient from '@vitejs/plugin-rsc/browser'
 import React from 'react'
-import type { ReactFormState } from 'react-dom/client'
 import * as ReactDOMClient from 'react-dom/client'
 import { rscStream } from 'rsc-html-stream/client'
-import '../style.css'
-
-export type RscPayload = {
-  root: React.ReactNode
-  returnValue?: unknown
-  formState?: ReactFormState
-}
+import type { RscPayload } from './entry.rsc'
 
 async function main() {
   let setPayload: (v: RscPayload) => void
