@@ -1,9 +1,9 @@
 import { ViteClient } from 'vite-ssr-components/react'
 import React from 'react'
-import type { Props } from './rsc-renderer'
+import type { Props } from './rsc/rsc-renderer'
 import './style.css'
 
-declare module './rsc-renderer' {
+declare module './rsc/rsc-renderer' {
   interface Props {
     title?: string
   }
