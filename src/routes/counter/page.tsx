@@ -1,7 +1,6 @@
-import { ClientCounter } from '@/components/ClientCounter'
-import { ServerActionCounter } from '@/components/ServerActionCounter'
+import { ClientCounter } from './components/ClientCounter'
+import { ServerActionCounter } from './components/ServerActionCounter'
 import { AppFooter } from '@/components/AppFooter'
-import { Suspense } from 'react'
 
 export function CounterPage() {
   return (
@@ -37,15 +36,7 @@ export function CounterPage() {
               <div>
                 <h3 className="text-lg font-semibold mb-2">Server Action counter</h3>
               </div>
-              <Suspense fallback={
-                <div className="flex flex-col items-center space-y-4 p-4 sm:p-6">
-                  <div className="text-4xl sm:text-6xl font-bold text-primary">
-                    ...
-                  </div>
-                </div>
-              }>
-                <ServerActionCounter />
-              </Suspense>
+              <ServerActionCounter />
               <div className="text-sm text-muted-foreground">
                 This counter persists on the server
               </div>

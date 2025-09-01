@@ -1,4 +1,4 @@
-import { Profile } from '@/components/Profile'
+import { Profile } from './components/Profile'
 import { AppFooter } from '@/components/AppFooter'
 import { UserCircle } from 'lucide-react'
 

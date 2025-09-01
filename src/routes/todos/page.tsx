@@ -1,4 +1,4 @@
-import { TodoList } from '@/components/TodoList'
+import { TodoList } from './components/TodoList'
 import { AppFooter } from '@/components/AppFooter'
 
 export function TodosPage() {

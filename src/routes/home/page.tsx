@@ -1,4 +1,5 @@
-import { HeroSection, NavigationSection } from '@/components/home'
+import { HeroSection } from './components/HeroSection'
+import { NavigationSection } from './components/NavigationSection'
 
 export function HomePage() {
   return (

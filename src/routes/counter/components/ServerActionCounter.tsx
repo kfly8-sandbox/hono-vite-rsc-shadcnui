@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
+import { Suspense } from 'react'
 
 // Simple in-memory store for server counter (in production, use database)
 let serverCount = 0
@@ -15,11 +16,11 @@ async function getServerCount() {
   return serverCount
 }
 
-export async function ServerActionCounter() {
+async function CounterContent() {
   const currentCount = await getServerCount()
 
   return (
-    <div className="flex flex-col items-center space-y-4 p-4 sm:p-6 relative">
+    <>
       {/* Counter Display */}
       <div className="relative">
         <div className="text-4xl sm:text-6xl font-bold transition-all duration-400 text-primary scale-100">
@@ -37,6 +38,22 @@ export async function ServerActionCounter() {
           <Plus className="h-6 w-6 sm:h-8 sm:w-8" />
         </Button>
       </form>
+    </>
+  )
+}
+
+export function ServerActionCounter() {
+  return (
+    <div className="flex flex-col items-center space-y-4 p-4 sm:p-6 relative">
+      <Suspense fallback={
+        <div className="animate-pulse">
+          <div className="text-4xl sm:text-6xl font-bold text-muted-foreground">
+            Loading...
+          </div>
+        </div>
+      }>
+        <CounterContent />
+      </Suspense>
     </div>
   )
 }
