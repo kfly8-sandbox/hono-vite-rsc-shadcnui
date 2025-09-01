@@ -1,4 +1,4 @@
-import app from './api'
+import app from './index'
 
 describe('GET /api/status', () => {
   it('should return status ok with timestamp and version', async () => {

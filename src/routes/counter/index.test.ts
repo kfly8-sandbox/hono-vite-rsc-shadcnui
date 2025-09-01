@@ -1,4 +1,4 @@
-import app from './counter'
+import app from './index'
 
 describe('GET /counter', () => {
   it('should return 200 status', async () => {

@@ -1,4 +1,4 @@
-import app from './todos'
+import app from './index'
 
 describe('GET /todos', () => {
   it('should return 200 status', async () => {

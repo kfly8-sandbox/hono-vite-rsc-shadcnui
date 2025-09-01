@@ -1,4 +1,4 @@
-import app from './profile'
+import app from '.'
 
 describe('GET /profile', () => {
   it('should return 200 status', async () => {

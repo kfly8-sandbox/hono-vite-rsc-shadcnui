@@ -10,11 +10,12 @@ const app = new Hono()
 
 app.use(rscRenderer({ Layout }))
 app.use(logger())
-app.notFound(notFound)
-app.onError(onError)
 
 const modules = import.meta.glob([
-  './routes/**/!(_*|$*|*.test|*.spec).(ts|tsx)'
+  './routes/**/index.(ts|tsx)',
+  '!./routes/**/*.test.(ts|tsx)',
+  '!./routes/**/*.spec.(ts|tsx)',
+  '!./routes/**/*.stories.(ts|tsx)'
 ], { eager: true })
 
 for (const path in modules) {
@@ -23,5 +24,8 @@ for (const path in modules) {
     app.route('/', module.default)
   }
 }
+
+app.notFound(notFound)
+app.onError(onError)
 
 export default app;

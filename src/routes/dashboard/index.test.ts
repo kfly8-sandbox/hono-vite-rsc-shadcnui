@@ -1,4 +1,4 @@
-import app from './dashboard'
+import app from '.'
 
 describe('GET /dashboard', () => {
   it('should return 200 status', async () => {
