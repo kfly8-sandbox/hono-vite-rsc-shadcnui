@@ -1,14 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ClientCounter } from './ClientCounter'
+import { NavigationSection } from './NavigationSection'
 
 const meta = {
-  title: 'Routes/Counter/ClientCounter',
-  component: ClientCounter,
+  title: 'Routes/Home/NavigationSection',
+  component: NavigationSection,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
-} satisfies Meta<typeof ClientCounter>
+} satisfies Meta<typeof NavigationSection>
 
 export default meta
 type Story = StoryObj<typeof meta>
