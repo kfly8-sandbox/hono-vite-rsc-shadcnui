@@ -2,6 +2,8 @@
 
 Modern tech stack trial with React Server Components
 
+Based on [kfly8/boilerplate-hono-vite-rsc](https://github.com/kfly8/boilerplate-hono-vite-rsc)
+
 ## Features
 
 - 🔥 **[Hono](https://hono.dev)**
