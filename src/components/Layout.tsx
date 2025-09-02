@@ -16,7 +16,13 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>{title ?? "hono-vite-rsc-shadcnui" }</title>
-        <ViteClient />
+        {/* 
+          WORKAROUND: Manually check for development environment before rendering ViteClient.
+          ViteClient is expected to handle this branching internally, but due to compatibility 
+          issues with RSC (React Server Components) build process, it doesn't work as expected.
+          This explicit environment check ensures ViteClient only renders in development.
+        */}
+        {import.meta.env.DEV && <ViteClient />}
       </head>
       <body>{children}</body>
     </html>
