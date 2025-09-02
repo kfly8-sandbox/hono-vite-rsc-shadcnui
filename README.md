@@ -66,3 +66,7 @@ src/
 └── style.css                 # Global Tailwind styles
 ```
 
+## License
+
+[MIT](./LICENSE)
+
