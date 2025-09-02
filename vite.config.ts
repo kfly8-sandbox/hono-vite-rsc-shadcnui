@@ -9,9 +9,6 @@ export default defineConfig(({ mode }) => ({
     rsc(),
     react(),
     tailwindcss(),
-    {
-      name: 'reload-builder',
-    }
   ],
 
   resolve: {
