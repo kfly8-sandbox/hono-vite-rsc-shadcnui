@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { Layout } from './layout'
+import { Layout } from './components/Layout'
 import { rscRenderer } from './rsc/rsc-renderer'
 import { logger } from 'hono/logger'
 
