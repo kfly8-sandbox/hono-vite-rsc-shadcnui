@@ -39,30 +39,30 @@ bun run build
 bun run preview
 ```
 
-## Project Structure
+## Project Structure Summary
 
 ```
 src/
-├── components/
-│   └── ui/          # shadcn/ui components
-├── routes/          # Route components (file-based routing)
-│   ├── *.test.ts    # Test files (co-located with routes)
-│   ├── _404.tsx     # 404 Not Found page
-│   ├── _error.tsx   # Error page
-│   ├── api.tsx
-│   ├── counter.tsx
-│   ├── dashboard.tsx
-│   ├── home.tsx
-│   ├── profile.tsx
-│   └── todos.tsx
-├── rsc/             # RSC entry points
-│   ├── entry.browser.tsx # Client entry point
-│   ├── entry.rsc.tsx     # RSC entry point
-│   ├── entry.ssr.tsx     # SSR entry point
-│   └── rsc-renderer.tsx  # RSC renderer
-├── cloudflare-workers.tsx # Cloudflare Workers entry
-├── layout.tsx       # Main layout component
-├── server.ts        # Server entry point with auto-routing
-└── style.css        # Global styles with Tailwind
+├── assets/          # Static assets (logos, etc.)
+├── components/      # Reusable components
+│   ├── ui/          # shadcn/ui components with Storybook stories
+│   └── Layout.tsx 
+│
+├── routes/                   # File-based routing
+│   ├── api/
+│   │   └── users/            # GET /api/users
+│   ├── counter/              # GET /counter
+│   │    ├── index.tsx        # Route handler
+│   │    ├── index.test.ts    # Route tests
+│   │    ├── page.tsx         # Page component
+│   │    ├── page.stories.tsx # Page story
+│   │    └── components/      # Route-specific components
+│   ├── _404.tsx              # 404 error page
+│   └── _error.tsx            # Error handling page
+│
+├── rsc/                      # React Server Components entry points
+├── cloudflare-workers.tsx    # Cloudflare Workers deployment
+├── server.ts                 # Main server with auto-routing
+└── style.css                 # Global Tailwind styles
 ```
 
