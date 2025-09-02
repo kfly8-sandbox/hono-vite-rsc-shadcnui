@@ -1,35 +1,5 @@
 import app from './index'
 
-describe('GET /api/status', () => {
-  it('should return status ok with timestamp and version', async () => {
-    const res = await app.request('/api/status')
-
-    expect(res.status).toBe(200)
-
-    const json = await res.json()
-    expect(json).toHaveProperty('status', 'ok')
-    expect(json).toHaveProperty('timestamp')
-    expect(json).toHaveProperty('version', '1.0.0')
-  })
-})
-
-describe('GET /api/users', () => {
-  it('should return array of users', async () => {
-    const res = await app.request('/api/users')
-
-    expect(res.status).toBe(200)
-
-    const json = await res.json()
-    expect(Array.isArray(json)).toBe(true)
-    expect(json).toHaveLength(3)
-
-    const firstUser = (json as any)[0]
-    expect(firstUser).toHaveProperty('id', 1)
-    expect(firstUser).toHaveProperty('name', 'John Doe')
-    expect(firstUser).toHaveProperty('email', 'john@example.com')
-  })
-})
-
 describe('POST /api/contact', () => {
   it('should accept contact form data and return success response', async () => {
     const contactData = {
